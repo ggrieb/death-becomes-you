@@ -1,0 +1,48 @@
+
+  
+body {
+  font-family: 'Karla', sans-serif;
+  width: 960px;
+  margin: 0 auto;
+}
+
+header {
+  font-size: 30px;
+  font-weight: bold;
+}
+
+h1 {
+  font-size: 25px;
+  font-weight: bold;
+}
+
+img {
+  text-align: center;
+}
+
+
+a {
+  display:block;
+
+}
+#side {
+  position: fixed;
+  margin-left: 10px;
+}
+
+h2 {
+  font-size: 25px;
+  margin-left:50px;
+  font-weight: bold;
+}
+p {
+  width: 500px;
+}
+div:not(#side) {
+  padding-left: 100px;
+  margin: 20%;
+  margin-top: 0px;
+  width: 600px;
+}
+
+
