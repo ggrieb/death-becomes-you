@@ -1,48 +1,102 @@
-
+* {
+  font-family: 'Playfair Display', serif;
+}
   
 body {
-  font-family: 'Karla', sans-serif;
   width: 960px;
   margin: 0 auto;
 }
 
-header {
-  font-size: 30px;
-  font-weight: bold;
+h2 {
+  font-family: 'IM Fell English SC', serif;
 }
 
-h1 {
-  font-size: 25px;
-  font-weight: bold;
+
+nav {
+  width: 100%;
+  background: #626E60;
+}
+
+nav ul {
+  text-align: center;
+  margin: 0;
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  background: #626E60;
+  text-decoration: none;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+nav ul li a:hover {
+  background: #945D60;
 }
 
 img {
   text-align: center;
+  border-radius:3px;
 }
 
-
-a {
-  display:block;
-
+main p {
+  font-family: 'Karla', sans-serif;
+  width: 500px;
 }
+
 #side {
   position: fixed;
   margin-left: 10px;
+  background-color: #945D60;
+  opacity: .8;
+  border-radius: 2px;
+  margin-left: 0px;
+  padding-left: 10px;
+  padding-right: 10px;
 }
 
-h2 {
-  font-size: 25px;
-  margin-left:50px;
+#side a {
+  display:block;
+  text-decoration: none;
+  color: black;
   font-weight: bold;
+  font-family: 'IM Fell English SC', serif;
+  padding: 10px;
 }
-p {
-  width: 500px;
+
+#side ul li {
+  padding-bottom: 10px;
 }
+
 div:not(#side) {
   padding-left: 100px;
-  margin: 20%;
+  margin-left: 20%;
+  margin-bottom: 50px;
   margin-top: 0px;
   width: 600px;
 }
 
+.attribution {
+  font-style: italic;
+  font-size: 12px;
+}
 
+footer {
+  text-align: center;
+  background: #3C3C3C;
+  color: white;
+}
+
+footer p a {
+  text-decoration: none;
+  color: white;
+}

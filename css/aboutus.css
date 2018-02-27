@@ -1,6 +1,40 @@
-h1 {
-  font-weight: bold;
-  font-size: 30px;
+* {
+  font-family: 'Playfair Display', serif;
+}
+
+p {
+  font-family: 'Karla', sans-serif;
+}
+
+nav {
+  width: 100%;
+  background: #626E60;
+}
+
+nav ul {
+  text-align: center;
+  margin: 0;
+  padding-left: 0px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+}
+
+nav ul li {
+  display: inline-block;
+}
+
+nav ul li a {
+  background: #626E60;
+  text-decoration: none;
+  color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+
+nav ul li a:hover {
+  background: #945D60;
 }
 
 img {
@@ -34,7 +68,13 @@ p {
 
 footer {
   text-align: center;
+  background: #3C3C3C;
+  color: white;
 }
 
+footer p a {
+  text-decoration: none;
+  color: white;
+}
 
 
