@@ -149,12 +149,12 @@ choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
-render();
 
-/*
 // local storage
-if (localStorage.getItem('mostClickOnSubjectArr') === null) {
+/*if (localStorage.getItem('mostClickOnSubjectArr') === null) {
   render(); //render for page load if localStorage does not exist execute normal flow
-} else {
-
-}*/
+  } else {
+    persistantMaxNum = JSON.parse(localStorage.getItem('mostClicksOnSubjectArr'));
+    persistantKeyMax = JSON.parse(localStorage.getItem('keyInTallyObjectForMaxArr'));
+    render();
+  }*/
