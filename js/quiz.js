@@ -12,13 +12,15 @@ var spaceDiv = document.getElementById('space');
 var seaDiv = document.getElementById('sea');
 var quizResult = document.getElementById('quizResult');
 var container = document.getElementById('questionDisplay');
-var choiceA = document.getElementById('choiceA');
+var choiceA = document.getElementById('choiceA'); // targeting quiz table elements to populate images
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
-var totalClicks = 0;
-var maxNum = 0;
-var keyMax = 0;
+var totalClicks = 0; 
+var maxNum = 0; // highest value of clicks for the burial categories 
+var keyMax = 0; // the object key that matches the maxNum value
+var persistantMaxNum = [];
+var persistantKeyMax = [];
 quizResult.style.display = 'none';
 skyDiv.style.display = 'none';
 vikingDiv.style.display = 'none';
@@ -28,6 +30,7 @@ cremateDiv.style.display = 'none';
 spaceDiv.style.display = 'none';
 seaDiv.style.display = 'none';
 
+// object used with max function to calculate maxNum and identify keyMax
 var tally = {
   sky: 0,
   viking: 0,
@@ -38,6 +41,7 @@ var tally = {
   sea: 0,
 }
 
+// questions constructor
 function Questions(a, b, c, d) {
   this.a = a;
   this.b = b;
@@ -46,6 +50,7 @@ function Questions(a, b, c, d) {
   questionsObjects.push(this);
 }
 
+// questions instances
 new Questions(['space','science','sky'], ['viking', 'green'], ['green'], ['cremate', 'sea']);
 new Questions(['sky', 'sea'], ['viking', 'cremate'], ['green', 'sky'], ['space', 'science']);
 new Questions(['sky', 'green'], ['cremate'], ['viking', 'sea'], ['science', 'space']);
@@ -73,6 +78,7 @@ function handleClick() {
 
 var count = 1; // declaring a counting variable to display question images
 
+// question images rendered onto table
 function render() {
   choiceA.src = 'img/q' + count + 'a.jpg';
   //choiceA.alt =
@@ -88,8 +94,8 @@ function render() {
   // choiceA.title =
   count += 1;
 }
-render(); //render for page load
 
+// pushes user clicked answer onto answer array
 function userAnswers(){
   if (event.target === choiceA){
     answers.push(questionsObjects[totalClicks].a);
@@ -106,6 +112,7 @@ function userAnswers(){
   localStorage.setItem('userAnswers', JSON.stringify(answers));
 }
 
+// uses tally object to populate clicks on categories
 function comparingResults() {
   for (var i = 0; i < answers.length; i++){
     for (var j = 0; j < 3; j++){
@@ -114,6 +121,7 @@ function comparingResults() {
   }
 }
 
+// uses tally object to find maximum and return key for displaying
 function maxFunction() {
   var tempArr = Object.keys(tally);
     for (var i = 0; i < tempArr.length; i++) {
@@ -123,8 +131,13 @@ function maxFunction() {
         keyMax = tempArr[i];
       }
     }
+  persistantMaxNum.push(maxNum);
+  persistantKeyMax.push(keyMax);
+  localStorage.setItem('mostClicksOnSubjectArr', JSON.stringify(persistantMaxNum));
+  localStorage.setItem('keyInTallyObjectForMaxArr', JSON.stringify(persistantKeyMax));
 }
 
+// displays highest correlation with quiz result
 function resultsDisplay() {
   quizResult.style.display = 'block';
   var tempDisplay = document.getElementById(keyMax);
@@ -136,5 +149,12 @@ choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
+render();
 
-//fix the handleClick gutter alert
+/*
+// local storage
+if (localStorage.getItem('mostClickOnSubjectArr') === null) {
+  render(); //render for page load if localStorage does not exist execute normal flow
+} else {
+
+}*/
