@@ -101,3 +101,17 @@ footer p a {
   text-decoration: none;
   color: white;
 }
+button {
+  
+  left: 45%;
+  right: 45%;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  background-color: #945D60;
+  border-radius: 10px;
+  margin-top: 20px;
+   
+}
