@@ -149,6 +149,7 @@ choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
+render();
 
 // local storage
 /*if (localStorage.getItem('mostClickOnSubjectArr') === null) {
