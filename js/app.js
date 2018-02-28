@@ -12,8 +12,11 @@ var cremation = document.getElementsByName("cremation").href = "learn.html";
 var spaceBurial = document.getElementsByName("space").href = "learn.html";
 var seaBurial = document.getElementsByName("sea").href = "learn.html";
 
-function randomizer(event) {
- return Math.floor(Math.random() * randoResults.length);
-}
-
 randomButton.addEventListener('click', randomizer);
+
+var burial;
+
+function randomizer(event) {
+  var randomNumber = Math.floor(Math.random() * randoResults.length);
+  burial = randoResults[randomNumber];
+}
