@@ -54,12 +54,17 @@ table td {
   padding-right: 5px;
 }
 
-#result {
+#quizResult {
   text-align: center;
 }
 
-#result h2 {
+#quizResult h2 {
   text-align: left;
+}
+
+#quizResult p a {
+  color: #af4737;
+  text-decoration: none;
 }
 
 footer {
