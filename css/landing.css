@@ -11,8 +11,31 @@ h2, h3 {
   font-family: 'IM Fell English SC', serif;
 }
 
+button {
+  position: relative;
+  left: 45%;
+  right: 45%;
+  font-size: 18px;
+  padding: 15px;
+  padding-left: 20px;
+  padding-right: 20px;
+  color: white;
+  background-color: #945D60;
+  border-radius: 10px;
+  margin-top: 20px;
+}
+
+button:hover {
+  color: white;
+  background-color: #af4737;
+  cursor: pointer;
+}
+
 p {
   font-family: 'Karla', sans-serif;
+  text-align: center;
+  line-height: 1.5;
+  font-size: 20px;
 }
 
 nav {
