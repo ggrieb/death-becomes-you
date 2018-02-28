@@ -51,6 +51,7 @@ img {
 main p {
   font-family: 'Karla', sans-serif;
   width: 500px;
+  line-height: 1.5;
 }
 
 #side {
