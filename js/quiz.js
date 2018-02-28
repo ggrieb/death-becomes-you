@@ -2,13 +2,15 @@
 
 var answers = [];
 var questionsObjects = []; //instances passing into
-var questionableTitle = [];
+//var questionableTitle = [];
 var container = document.getElementById('table');
 var choiceA = document.getElementById('choiceA');
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
 var totalClicks = 0;
+
+var tally = {};
 
 function Questions(a, b, c, d) {
   this.a = a;
@@ -18,11 +20,11 @@ function Questions(a, b, c, d) {
   questionsObjects.push(this);
 }
 
-new Questions('Space' + ' Science' + ' Sky', 'Viking' + ' Green', 'Green', 'cremate' + ' Sea');
-new Questions('Sky' + ' Sea', 'Viking' + ' cremate', 'Green' + ' Sky', 'Space' + ' Science');
-new Questions('Sky' + ' Green', 'cremate', 'Viking' + ' Sea', 'Science' + ' Space');
-new Questions('Science' + ' Sky', 'Green' + ' cremate' + ' Sea', 'Viking', 'Space');
-new Questions('Sky' + ' Green', 'Viking' + ' cremate', 'Space','Sea' + ' Science');
+new Questions(['space','science','sky'], ['viking', 'green'], 'green', ['cremate', 'sea']);
+new Questions(['sky', 'sea'], ['viking', 'cremate'], ['green', 'sky'], ['space', 'science']);
+new Questions(['sky', 'green'], 'cremate', ['viking', 'sea'], ['science', 'space']);
+new Questions(['science', 'sky'], ['green', ' cremate', 'sea'], 'viking', 'space');
+new Questions(['sky', 'green'], ['viking', 'cremate'], 'space',['sea', 'science']);
 
 //method to handle clicks on question images
 function handleClick() {
@@ -76,17 +78,23 @@ function userAnswers(){
   }
   localStorage.setItem('userAnswers', JSON.stringify(answers));
 }
-/*function comparingResults() {
-  var slicedAnswers = answers.slice(' ');
-  for (var i = 0; i < answers.length; i++){
-  if (answers[i] === ) {
+function comparingResults() {
 
+
+  for (var i = 0; i < answers.length; i++){
+
+    if (tally.answers[i]){
+      tally[answers[i]]++;
+    } else {
+      tally[answers[i]] = 1;
+    }
   }
-    
-  }
-*/
-//need to fill the array with images
-//event.target.source?
+
+}
+
+
+comparingResults();
+
 
 
 // event listener
