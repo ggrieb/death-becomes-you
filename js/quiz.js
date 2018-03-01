@@ -3,6 +3,7 @@
 var answers = [];
 var questionsObjects = []; //instances passing into
 //var questionableTitle = [];
+var displayArray = [0, 0, 0, 0, 0, 0, 0];
 var skyDiv = document.getElementById('sky');
 var vikingDiv = document.getElementById('viking');
 var greenDiv = document.getElementById('green');
@@ -16,8 +17,8 @@ var choiceA = document.getElementById('choiceA'); // targeting quiz table elemen
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
-var totalClicks = 0; 
-var maxNum = 0; // highest value of clicks for the burial categories 
+var totalClicks = 0;
+var maxNum = 0; // highest value of clicks for the burial categories
 var keyMax = 0; // the object key that matches the maxNum value
 var persistantMaxNum = [];
 var persistantKeyMax = [];
@@ -39,7 +40,7 @@ var tally = {
   cremate: 0,
   space: 0,
   sea: 0,
-}
+};
 
 // questions constructor
 function Questions(a, b, c, d) {
@@ -70,6 +71,8 @@ function handleClick() {
     comparingResults();
     maxFunction();
     resultsDisplay();
+    populateDisplayArray();
+    displayChart();
     return; // breaks out of the function after 5 clicks
   }
   totalClicks++;
@@ -124,13 +127,13 @@ function comparingResults() {
 // uses tally object to find maximum and return key for displaying
 function maxFunction() {
   var tempArr = Object.keys(tally);
-    for (var i = 0; i < tempArr.length; i++) {
-      var temp2 = tally[tempArr[i]];
-      if (temp2 > maxNum) {
-        maxNum = temp2;
-        keyMax = tempArr[i];
-      }
+  for (var i = 0; i < tempArr.length; i++) {
+    var temp2 = tally[tempArr[i]];
+    if (temp2 > maxNum) {
+      maxNum = temp2;
+      keyMax = tempArr[i];
     }
+  }
   persistantMaxNum.push(maxNum);
   persistantKeyMax.push(keyMax);
   localStorage.setItem('mostClicksOnSubjectArr', JSON.stringify(persistantMaxNum));
@@ -144,18 +147,93 @@ function resultsDisplay() {
   tempDisplay.style.display = 'block';
 }
 
+// populate display array with persistant values from keyMax
+function populateDisplayArray() {
+  for (var i = 0; i < persistantKeyMax.length; i++) {
+    if(persistantKeyMax[i] === 'sky') {
+      displayArray[0] += 1;
+    } else if (persistantKeyMax[i] === 'viking') {
+      displayArray[1] += 1;
+    } else if (persistantKeyMax[i] === 'green') {
+      displayArray[2] += 1;
+    } else if (persistantKeyMax[i] === 'science') {
+      displayArray[3] += 1;
+    } else if (persistantKeyMax[i] === 'cremate') {
+      displayArray[4] += 1;
+    } else if (persistantKeyMax[i] === 'space') {
+      displayArray[5] += 1;
+    } else if (persistantKeyMax[i] === 'sea') {
+      displayArray[6] += 1;
+    }
+  } console.log(displayArray);
+}
+
+// graphic display for results (persitent results secondary)
+var ctx = document.getElementById('barGraph').getContext('2d');
+
+var colorsArray = Array(7).fill('#ad974f');
+Chart.defaults.global.defaultFontColor = '#eaeaea';
+
+var data = {
+  labels: Object.keys(tally),
+  datasets: [
+    {
+      data: displayArray,
+      backgroundColor: colorsArray,
+      hoverBackgroundColor: colorsArray,
+    }
+  ]
+};
+
+function displayChart() {
+  new Chart(ctx, {
+    type: 'bar',
+    data: data,
+    options: {
+      legend: {
+        display: false,
+        labels: {
+        }
+      },
+      responsive: false,
+      animation: {
+        duration: 1000,
+        easing: 'easeOutBounce'
+      },
+      title: {
+        display: true,
+        text: 'Votes Per Product',
+        fontSize: 18,
+      },
+      scales: {
+        yAxes: [{
+          type: 'linear',
+          ticks: {
+            min: 0,
+            stepSize: 1,
+            padding: 15,
+          }
+        }]
+      }
+    }
+  });
+}
+
+
+
 // event listener
 choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
-render();
+// render();
 
 // local storage
-/*if (localStorage.getItem('mostClickOnSubjectArr') === null) {
+if (localStorage.getItem('mostClicksOnSubjectArr') === null) {
   render(); //render for page load if localStorage does not exist execute normal flow
-  } else {
-    persistantMaxNum = JSON.parse(localStorage.getItem('mostClicksOnSubjectArr'));
-    persistantKeyMax = JSON.parse(localStorage.getItem('keyInTallyObjectForMaxArr'));
-    render();
-  }*/
+} else {
+  console.log('local storage exists');
+  persistantMaxNum = JSON.parse(localStorage.getItem('mostClicksOnSubjectArr'));
+  persistantKeyMax = JSON.parse(localStorage.getItem('keyInTallyObjectForMaxArr'));
+  render();
+}
