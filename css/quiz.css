@@ -3,8 +3,27 @@
 }
 
 body {
-  width: 960px;
   margin: 0 auto;
+}
+
+header {
+  background-color:#CAEBF2;
+  top:0;
+  width:100%;
+  margin-bottom:0px;
+  padding-left:18%;
+  position:fixed;
+}
+
+main {
+ width: 600px;
+ margin: 0 auto;
+}
+
+main p {
+ width: 480px;
+ margin: 0 auto; 
+ padding-top: 30px;
 }
 
 h2, h3 {
@@ -15,9 +34,12 @@ p {
   font-family: 'Karla', sans-serif;
 }
 
+
 nav {
+  position:fixed;
+  top:80px;
   width: 100%;
-  background: #626E60;
+  background: #A9A9A9;
 }
 
 nav ul {
@@ -33,7 +55,7 @@ nav ul li {
 }
 
 nav ul li a {
-  background: #626E60;
+  background: #A9A9A9;
   text-decoration: none;
   color: white;
   padding-top: 10px;
@@ -43,7 +65,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #945D60;
+  background: #FF3B3F;
 }
 
 table {
@@ -54,8 +76,14 @@ table td {
   padding-right: 5px;
 }
 
+#questionDisplay {
+  margin-top:150px;
+}
+
 #quizResult {
   text-align: center;
+  margin-bottom: 30px;
+  margin-top:150px;
 }
 
 #quizResult h2 {
@@ -63,10 +91,16 @@ table td {
 }
 
 #quizResult p a {
-  color: #af4737;
+  color: #FF3B3F;
+  font-family:'IM Fell English SC', serif;
   text-decoration: none;
+  font-size: 20px;
 }
 
+canvas {
+  width: 960px;
+  margin: 0 auto;
+}
 footer {
   text-align: center;
   background: #3C3C3C;
