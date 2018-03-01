@@ -1,9 +1,16 @@
 'use strict';
 
+// Ryan is writing whole description
+
+var totalClicks = 0;
+var maxNum = 0; // highest value of clicks for the burial categories
+var keyMax = 0; // the object key that matches the maxNum value
+var persistantMaxNum = [];
+var persistantKeyMax = [];
 var answers = [];
-var questionsObjects = []; //instances passing into
-//var questionableTitle = [];
-var displayArray = [0, 0, 0, 0, 0, 0, 0];
+var questionsObjects = []; //instances passing into - where we are getting our answers from
+var displayArray = [0, 0, 0, 0, 0, 0, 0]; //We have seven answers, so we want an array that has that specific length that is "empty". This is being used to populate our chart.
+
 var skyDiv = document.getElementById('sky');
 var vikingDiv = document.getElementById('viking');
 var greenDiv = document.getElementById('green');
@@ -17,11 +24,8 @@ var choiceA = document.getElementById('choiceA'); // targeting quiz table elemen
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
-var totalClicks = 0;
-var maxNum = 0; // highest value of clicks for the burial categories
-var keyMax = 0; // the object key that matches the maxNum value
-var persistantMaxNum = [];
-var persistantKeyMax = [];
+
+//hiding the results until finished with quiz
 quizResult.style.display = 'none';
 skyDiv.style.display = 'none';
 vikingDiv.style.display = 'none';
@@ -32,6 +36,7 @@ spaceDiv.style.display = 'none';
 seaDiv.style.display = 'none';
 
 // object used with max function to calculate maxNum and identify keyMax
+// As we go through our answers array, we then use tally and the key value pairs to increment whatever answer is at that indicies
 var tally = {
   sky: 0,
   viking: 0,
@@ -51,7 +56,8 @@ function Questions(a, b, c, d) {
   questionsObjects.push(this);
 }
 
-// questions instances
+// Questions instances
+//The power of this is it allows us to store multiple burials per answer - handy for creating new Questions
 new Questions(['space','science','sky'], ['viking', 'green'], ['green'], ['cremate', 'sea']);
 new Questions(['sky', 'sea'], ['viking', 'cremate'], ['green', 'sky'], ['space', 'science']);
 new Questions(['sky', 'green'], ['cremate'], ['viking', 'sea'], ['science', 'space']);
@@ -59,8 +65,8 @@ new Questions(['science', 'sky'], ['green', ' cremate', 'sea'], ['viking'], ['sp
 new Questions(['sky', 'green'], ['viking', 'cremate'], ['space'], ['sea', 'science']);
 
 //method to handle clicks on question images
+//if statement is taking the number of clicks, turning event listeners off, hiding the actual questions container, we call functions then return which then breaks us out of function. Also it is incrementing total clicks, and renders the next question
 function handleClick() {
-  console.log('event is being passed.');
   userAnswers();
   if (totalClicks === questionsObjects.length - 1) {
     choiceA.removeEventListener('click', handleClick);
@@ -115,7 +121,7 @@ function userAnswers(){
   localStorage.setItem('userAnswers', JSON.stringify(answers));
 }
 
-// uses tally object to populate clicks on categories
+// uses tally object to populate clicks on categories -- populating our tally
 function comparingResults() {
   for (var i = 0; i < answers.length; i++){
     for (var j = 0; j < 3; j++){
@@ -126,9 +132,9 @@ function comparingResults() {
 
 // uses tally object to find maximum and return key for displaying
 function maxFunction() {
-  var tempArr = Object.keys(tally);
+  var tempArr = Object.keys(tally); //Object.keys is an inherent part of JS - it will give you an array that will return an array of the keys in that object. Tally is passed as a parameter.
   for (var i = 0; i < tempArr.length; i++) {
-    var temp2 = tally[tempArr[i]];
+    var temp2 = tally[tempArr[i]]; //bracket notation allows us to access the key as a string for the object tally.
     if (temp2 > maxNum) {
       maxNum = temp2;
       keyMax = tempArr[i];
@@ -165,7 +171,7 @@ function populateDisplayArray() {
     } else if (persistantKeyMax[i] === 'sea') {
       displayArray[6] += 1;
     }
-  } console.log(displayArray);
+  }
 }
 
 // graphic display for results (persitent results secondary)
@@ -184,6 +190,7 @@ var data = {
     }
   ]
 };
+var Chart;
 
 function displayChart() {
   new Chart(ctx, {
@@ -219,20 +226,16 @@ function displayChart() {
   });
 }
 
-
-
 // event listener
 choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
-// render();
 
 // local storage
 if (localStorage.getItem('mostClicksOnSubjectArr') === null) {
   render(); //render for page load if localStorage does not exist execute normal flow
 } else {
-  console.log('local storage exists');
   persistantMaxNum = JSON.parse(localStorage.getItem('mostClicksOnSubjectArr'));
   persistantKeyMax = JSON.parse(localStorage.getItem('keyInTallyObjectForMaxArr'));
   render();
