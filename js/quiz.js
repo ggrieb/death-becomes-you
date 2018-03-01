@@ -1,8 +1,12 @@
 'use strict';
 
+var totalClicks = 0;
+var maxNum = 0; // highest value of clicks for the burial categories
+var keyMax = 0; // the object key that matches the maxNum value
+var persistantMaxNum = [];
+var persistantKeyMax = [];
 var answers = [];
 var questionsObjects = []; //instances passing into
-//var questionableTitle = [];
 var displayArray = [0, 0, 0, 0, 0, 0, 0];
 var skyDiv = document.getElementById('sky');
 var vikingDiv = document.getElementById('viking');
@@ -17,11 +21,7 @@ var choiceA = document.getElementById('choiceA'); // targeting quiz table elemen
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
-var totalClicks = 0;
-var maxNum = 0; // highest value of clicks for the burial categories
-var keyMax = 0; // the object key that matches the maxNum value
-var persistantMaxNum = [];
-var persistantKeyMax = [];
+//hiding results of quiz until finished
 quizResult.style.display = 'none';
 skyDiv.style.display = 'none';
 vikingDiv.style.display = 'none';
@@ -60,7 +60,6 @@ new Questions(['sky', 'green'], ['viking', 'cremate'], ['space'], ['sea', 'scien
 
 //method to handle clicks on question images
 function handleClick() {
-  console.log('event is being passed.');
   userAnswers();
   if (totalClicks === questionsObjects.length - 1) {
     choiceA.removeEventListener('click', handleClick);
@@ -165,7 +164,7 @@ function populateDisplayArray() {
     } else if (persistantKeyMax[i] === 'sea') {
       displayArray[6] += 1;
     }
-  } console.log(displayArray);
+  }
 }
 
 // graphic display for results (persitent results secondary)
@@ -226,13 +225,11 @@ choiceA.addEventListener('click', handleClick);
 choiceB.addEventListener('click', handleClick);
 choiceC.addEventListener('click', handleClick);
 choiceD.addEventListener('click', handleClick);
-// render();
 
 // local storage
 if (localStorage.getItem('mostClicksOnSubjectArr') === null) {
   render(); //render for page load if localStorage does not exist execute normal flow
 } else {
-  console.log('local storage exists');
   persistantMaxNum = JSON.parse(localStorage.getItem('mostClicksOnSubjectArr'));
   persistantKeyMax = JSON.parse(localStorage.getItem('keyInTallyObjectForMaxArr'));
   render();
