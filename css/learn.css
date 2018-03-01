@@ -11,10 +11,20 @@ h2 {
   font-family: 'IM Fell English SC', serif;
 }
 
+header {
+  width: 960px;
+  position: fixed;
+  overflow: hidden;
+  background-color:#945D60;
+  top: 0px;
+}
 
 nav {
-  width: 100%;
+  width: 960px;
+  overflow: hidden;
   background: #626E60;
+  position: fixed;
+  top: 80px;
 }
 
 nav ul {
@@ -56,6 +66,7 @@ main p {
 
 #side {
   position: fixed;
+  top: 120px;
   margin-left: 10px;
   background-color: #945D60;
   opacity: .8;
@@ -74,6 +85,10 @@ main p {
   padding: 10px;
 }
 
+.bold:hover {
+  background-color: #626E60;
+}
+
 #side ul li {
   padding-bottom: 10px;
 }
@@ -82,7 +97,7 @@ div:not(#side) {
   padding-left: 100px;
   margin-left: 20%;
   margin-bottom: 50px;
-  margin-top: 0px;
+  margin-top: 140px;
   width: 600px;
 }
 
