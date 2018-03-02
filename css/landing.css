@@ -1,33 +1,54 @@
 * {
   font-family: 'Playfair Display', serif;
+/* background: #efefef; */
 }
 
 body {
-  width: 960px;
   margin: 0 auto;
+}
+body header{
+  background-color: #caebf2;
+  top: 0px;
+  position: fixed;
+  overflow: hidden;
+  width:  100%;
+  padding-left: 18%;
+}
+
+body header a {
+  text-decoration: none;
+  color: black;
 }
 
 h2, h3 {
   font-family: 'IM Fell English SC', serif;
 }
 
+main {
+  background-color: #caebf2;
+  width: 960px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 button {
   position: relative;
-  left: 45%;
-  right: 45%;
+  left: 35%;
+  right: 38%;
   font-size: 18px;
   padding: 15px;
   padding-left: 20px;
   padding-right: 20px;
   color: white;
-  background-color: #945D60;
+  background-color: #FF3b3f;
   border-radius: 10px;
   margin-top: 20px;
 }
 
 button:hover {
   color: white;
-  background-color: #af4737;
+  background-color: #a9a9a9;
   cursor: pointer;
 }
 
@@ -40,7 +61,14 @@ p {
 
 nav {
   width: 100%;
-  background: #626E60;
+  background: #a9a9a9;
+  position: fixed;
+  overflow: hidden;
+  top: 80px;
+}
+
+#home a {
+  background-color: #FF3b3f;
 }
 
 nav ul {
@@ -56,7 +84,7 @@ nav ul li {
 }
 
 nav ul li a {
-  background: #626E60;
+  background: #a9a9a9;
   text-decoration: none;
   color: white;
   padding-top: 10px;
@@ -66,15 +94,17 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #945D60;
+  background: #FF3b3f;
 }
 
 footer {
   text-align: center;
-  background: #3C3C3C;
+  background: #A9A9A9;
   color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
+ 
 footer p a {
   text-decoration: none;
   color: white;

@@ -1,6 +1,8 @@
 'use strict';
 
+
 // Ryan is writing whole description
+
 
 var totalClicks = 0;
 var maxNum = 0; // highest value of clicks for the burial categories
@@ -8,8 +10,10 @@ var keyMax = 0; // the object key that matches the maxNum value
 var persistantMaxNum = [];
 var persistantKeyMax = [];
 var answers = [];
+
 var questionsObjects = []; //instances passing into - where we are getting our answers from
 var displayArray = [0, 0, 0, 0, 0, 0, 0]; //We have seven answers, so we want an array that has that specific length that is "empty". This is being used to populate our chart.
+
 
 var skyDiv = document.getElementById('sky');
 var vikingDiv = document.getElementById('viking');
@@ -24,6 +28,7 @@ var choiceA = document.getElementById('choiceA'); // targeting quiz table elemen
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
+
 
 //hiding the results until finished with quiz
 quizResult.style.display = 'none';
