@@ -86,7 +86,7 @@ main p {
   line-height: 1.5;
 }
 
-#side {
+aside {
   position: fixed;
   top: 120px;
   margin-left: 18.5%;
@@ -94,26 +94,24 @@ main p {
   border-radius: 2px;
   padding-left: 10px;
   padding-right: 10px;
+  padding-bottom: 7px;
 }
 
-#side a {
+aside a {
   display:block;
   text-decoration: none;
   color: black;
+  font-size: 20px;
   font-weight: bold;
   font-family: 'IM Fell English SC', serif;
-  padding: 10px;
+  padding: 5px;
 }
 
-#side a:hover {
+aside a:hover {
   background-color: #ff3b3f;
 }
 
-#side ul li {
-  padding-bottom: 10px;
-}
-
-div:not(#side) {
+div {
   padding-left: 100px;
   margin-left: 20%;
   margin-bottom: 50px;
@@ -144,9 +142,14 @@ button {
   padding: 15px;
   padding-left: 42px;
   padding-right: 53px;
-  color: white;
+  color: #EFEFEF;
   background-color: #ff3b3f;
   border-radius: 10px;
   margin-top: 5px;
   cursor: pointer;
+}
+
+button:hover {
+  background-color: #EFEFEF;
+  color: #ff3b3f;
 }
