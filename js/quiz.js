@@ -218,7 +218,8 @@ function displayChart() {
       },
       title: {
         display: true,
-        text: 'Votes Per Product',
+        backgroundColor: '#caebf2',
+        text: 'Most Popular Methods of Disposition',
         fontSize: 18,
       },
       scales: {

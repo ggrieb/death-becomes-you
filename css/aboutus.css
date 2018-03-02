@@ -32,6 +32,15 @@ main p {
   height: 80px;
 }
 
+.profileLinks {
+  height: 35px;
+}
+
+.profileLinks a{
+  text-decoration: none;
+  color: #ff3b3f;
+}
+
 nav {
   width: 100%;
   background: #a9a9a9;
