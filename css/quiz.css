@@ -16,7 +16,7 @@ header {
 }
 
 main {
- width: 600px;
+ width: 960px;
  margin: 0 auto;
 }
 
@@ -25,15 +25,24 @@ main p {
  margin: 0 auto; 
  padding-top: 30px;
 }
-
+h1 a {
+  text-decoration: none;
+  color:black;
+}
+main h2 {
+  font-size:30px;
+}
 h2, h3 {
   font-family: 'IM Fell English SC', serif;
+  font-size:30px;
 }
-
+div p {
+  text-align:left;
+  line-height: 1.7;
+}
 p {
   font-family: 'Karla', sans-serif;
 }
-
 
 nav {
   position:fixed;
@@ -67,6 +76,9 @@ nav ul li a {
 nav ul li a:hover {
   background: #FF3B3F;
 }
+#quiztab a {
+  background-color: #FF3B3F;
+}
 
 table {
   margin: 0 auto;
@@ -74,6 +86,10 @@ table {
 
 table td {
   padding-right: 5px;
+}
+
+table img:hover {
+  cursor: pointer;
 }
 
 #questionDisplay {
@@ -86,8 +102,14 @@ table td {
   margin-top:150px;
 }
 
-#quizResult h2 {
-  text-align: left;
+#quizResult div h2 {
+  width:480px;
+  margin: 0 auto;
+  margin-bottom:15px;
+  text-align:left;
+}
+#quizResult h2:first-child  {
+  text-align: left;  
 }
 
 #quizResult p a {
@@ -103,8 +125,11 @@ canvas {
 }
 footer {
   text-align: center;
-  background: #3C3C3C;
+  background: #A9A9A9;
   color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin-top: 30px;
 }
 
 footer p a {
