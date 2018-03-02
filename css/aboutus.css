@@ -2,13 +2,42 @@
   font-family: 'Playfair Display', serif;
 }
 
-p {
+body {
+  margin: 0 auto;
+}
+
+body header {
+  background-color: #caebf2;
+  top: 0px;
+  position: fixed;
+  overflow: hidden;
+  width:  100%;
+  padding-left: 18%;
+}
+
+body header a {
+  text-decoration: none;
+  color: black;
+}
+
+body main {
+  width: 960px;
+  margin-top: 120px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+main p {
   font-family: 'Karla', sans-serif;
+  height: 80px;
 }
 
 nav {
   width: 100%;
-  background: #626E60;
+  background: #a9a9a9;
+  position: fixed;
+  overflow: hidden;
+  top: 80px;
 }
 
 nav ul {
@@ -24,7 +53,7 @@ nav ul li {
 }
 
 nav ul li a {
-  background: #626E60;
+  background: #a9a9a9;
   text-decoration: none;
   color: white;
   padding-top: 10px;
@@ -34,7 +63,11 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #945D60;
+  background: #ff3b3f;
+}
+
+#onAboutUs a {
+  background-color: #ff3b3f;
 }
 
 img {
@@ -44,37 +77,37 @@ img {
   border-radius:10px
 }
 
-body {
-  width: 960px;
-  margin: 0 auto;
-}
-
 h2 {
   font-weight: bold;
   font-size: 25px;
   display: inline-block;
-  margin-left: 30px;
+  margin-left: 0px;
   margin-top: 15px;
-  
+  margin-bottom: 0px;
+}
+
+#topImage {
+  margin-top: 160px;
+  background-color: #caebf2;
+  border-radius: 3px;
 }
 
 div {
-  margin-top: 5%;
-}
-
-p {
-  margin: 30px 0px 200px 30px;
+  margin-top: 120px;
+  background-color: #caebf2;
+  border-radius: 3px;
 }
 
 footer {
   text-align: center;
-  background: #3C3C3C;
+  background: #A9A9A9;
   color: white;
+  margin-top: 120px;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
+ 
 footer p a {
   text-decoration: none;
   color: white;
 }
-
-

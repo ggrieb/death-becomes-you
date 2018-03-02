@@ -3,18 +3,50 @@
 }
   
 body {
-  width: 960px;
   margin: 0 auto;
+}
+
+body header a {
+  text-decoration: none;
+  color: black;
+}
+
+body main {
+  background-color: #caebf2;
+  width: 960px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.spacer {
+  padding-top: 160px;
 }
 
 h2 {
   font-family: 'IM Fell English SC', serif;
 }
 
+header {
+  width: 100%;
+  position: fixed;
+  overflow: hidden;
+  background-color: #caebf2;;
+  top: 0px;
+  margin-left: 0px;
+  margin-right: 0px;
+  padding-left: 18%;
+}
 
 nav {
   width: 100%;
-  background: #626E60;
+  overflow: hidden;
+  background: #a9a9a9;
+  position: fixed;
+  top: 80px;
+}
+
+#onLearn a {
+  background-color: #ff3b3f;
 }
 
 nav ul {
@@ -30,7 +62,7 @@ nav ul li {
 }
 
 nav ul li a {
-  background: #626E60;
+  background: #a9a9a9;
   text-decoration: none;
   color: white;
   padding-top: 10px;
@@ -40,7 +72,7 @@ nav ul li a {
 }
 
 nav ul li a:hover {
-  background: #945D60;
+  background: #ff3b3f;
 }
 
 img {
@@ -56,11 +88,10 @@ main p {
 
 #side {
   position: fixed;
-  margin-left: 10px;
-  background-color: #945D60;
-  opacity: .8;
+  top: 120px;
+  margin-left: 18.5%;
+  background-color: #a9a9a9;
   border-radius: 2px;
-  margin-left: 0px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -74,6 +105,10 @@ main p {
   padding: 10px;
 }
 
+#side a:hover {
+  background-color: #ff3b3f;
+}
+
 #side ul li {
   padding-bottom: 10px;
 }
@@ -82,7 +117,6 @@ div:not(#side) {
   padding-left: 100px;
   margin-left: 20%;
   margin-bottom: 50px;
-  margin-top: 0px;
   width: 600px;
 }
 
@@ -93,25 +127,26 @@ div:not(#side) {
 
 footer {
   text-align: center;
-  background: #3C3C3C;
+  background: #A9A9A9;
   color: white;
+  padding-top: 10px;
+  padding-bottom: 10px;
 }
-
+ 
 footer p a {
   text-decoration: none;
   color: white;
 }
-button {
-  
-  left: 45%;
-  right: 45%;
+
+button { 
+  text-align: center;
   font-size: 18px;
   padding: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 42px;
+  padding-right: 53px;
   color: white;
-  background-color: #945D60;
+  background-color: #ff3b3f;
   border-radius: 10px;
-  margin-top: 20px;
-   
+  margin-top: 5px;
+  cursor: pointer;
 }
