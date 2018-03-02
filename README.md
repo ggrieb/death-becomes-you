@@ -7,8 +7,8 @@ Languages: HTML, CSS, JavaScript.
 
 Last Update: March 2, 2018.
 
-Contributors: Cara Ottmar, Garret Grieb, Ryan Groesch, Joanna Coll
+Contributors: Cara Ottmar, Garrett Grieb, Ryan Groesch, Joanna Coll
 
-Acknowledgements:
+Acknowledgements: Thank you to all the wonderful TA's at CodeFellows for their patience, guidance, and fresh perspectives.
 
 Image Attribution: Cremation Urn by Norbert Hüttisch, Karlsruhe
