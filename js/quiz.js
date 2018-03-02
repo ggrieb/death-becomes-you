@@ -13,11 +13,12 @@ var answers = [];
 
 var questionsObjects = []; //instances passing into - where we are getting our answers from
 var displayArray = [0, 0, 0, 0, 0, 0, 0]; //We have seven answers, so we want an array that has that specific length that is "empty". This is being used to populate our chart.
+//var questionArray = ['Pick your favourite hobby.', 'Pick your favourite holidays option.','Pick your favorite food.', 'Pick your budget range.', 'Pick your favorite color.'];
 
 
 var skyDiv = document.getElementById('sky');
 var vikingDiv = document.getElementById('viking');
-var greenDiv = document.getElementById('green');
+var burialDiv = document.getElementById('burial');
 var scienceDiv = document.getElementById('science');
 var cremateDiv = document.getElementById('cremate');
 var spaceDiv = document.getElementById('space');
@@ -28,13 +29,15 @@ var choiceA = document.getElementById('choiceA'); // targeting quiz table elemen
 var choiceB = document.getElementById('choiceB');
 var choiceC = document.getElementById('choiceC');
 var choiceD = document.getElementById('choiceD');
+//var questionH2 = document.getElementById('questions');
+
 
 
 //hiding the results until finished with quiz
 quizResult.style.display = 'none';
 skyDiv.style.display = 'none';
 vikingDiv.style.display = 'none';
-greenDiv.style.display = 'none';
+burialDiv.style.display = 'none';
 scienceDiv.style.display = 'none';
 cremateDiv.style.display = 'none';
 spaceDiv.style.display = 'none';
@@ -45,7 +48,7 @@ seaDiv.style.display = 'none';
 var tally = {
   sky: 0,
   viking: 0,
-  green: 0,
+  burial: 0,
   science: 0,
   cremate: 0,
   space: 0,
@@ -63,11 +66,12 @@ function Questions(a, b, c, d) {
 
 // Questions instances
 //The power of this is it allows us to store multiple burials per answer - handy for creating new Questions
-new Questions(['space','science','sky'], ['viking', 'green'], ['green'], ['cremate', 'sea']);
-new Questions(['sky', 'sea'], ['viking', 'cremate'], ['green', 'sky'], ['space', 'science']);
-new Questions(['sky', 'green'], ['cremate'], ['viking', 'sea'], ['science', 'space']);
-new Questions(['science', 'sky'], ['green', ' cremate', 'sea'], ['viking'], ['space']);
-new Questions(['sky', 'green'], ['viking', 'cremate'], ['space'], ['sea', 'science']);
+new Questions(['space','science','sky'], ['viking', 'burial'], ['burial'], ['cremate', 'sea']);
+new Questions(['sky', 'sea'], ['viking', 'cremate'], ['burial', 'sky'], ['space', 'science']);
+new Questions(['sky', 'burial'], ['cremate'], ['viking', 'sea'], ['science', 'space']);
+new Questions(['science', 'sky'], ['burial', ' cremate', 'sea'], ['viking'], ['space']);
+new Questions(['sky', 'burial'], ['viking', 'cremate'], ['space'], ['sea', 'science']);
+
 
 //method to handle clicks on question images
 //if statement is taking the number of clicks, turning event listeners off, hiding the actual questions container, we call functions then return which then breaks us out of function. Also it is incrementing total clicks, and renders the next question
@@ -165,7 +169,7 @@ function populateDisplayArray() {
       displayArray[0] += 1;
     } else if (persistantKeyMax[i] === 'viking') {
       displayArray[1] += 1;
-    } else if (persistantKeyMax[i] === 'green') {
+    } else if (persistantKeyMax[i] === 'burial') {
       displayArray[2] += 1;
     } else if (persistantKeyMax[i] === 'science') {
       displayArray[3] += 1;
@@ -182,8 +186,8 @@ function populateDisplayArray() {
 // graphic display for results (persitent results secondary)
 var ctx = document.getElementById('barGraph').getContext('2d');
 
-var colorsArray = Array(7).fill('#ad974f');
-Chart.defaults.global.defaultFontColor = '#eaeaea';
+var colorsArray = Array(7).fill('#ff3b3f');
+Chart.defaults.global.defaultFontColor = '#A9A9A9';
 
 var data = {
   labels: Object.keys(tally),
@@ -222,7 +226,7 @@ function displayChart() {
           type: 'linear',
           ticks: {
             min: 0,
-            stepSize: 1,
+            stepSize: 2,
             padding: 15,
           }
         }]

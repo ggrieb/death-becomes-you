@@ -13,13 +13,13 @@
 
 <body>
   <header>
-    <h1>Death Becomes You: Quiz</h1>
+    <h1><a href="index.html">Death Becomes You</a></h1>
   </header>
 
   <nav>
     <ul>
       <li><a href="index.html">HOME</a></li>
-      <li><a href="quiz.html">QUIZ</a></li>
+      <li id="quiztab"><a href="quiz.html">QUIZ</a></li>
       <li><a href="learn.html">LEARN</a></li>
       <li><a href="aboutus.html">ABOUT US</a></li>
     </ul>
@@ -27,7 +27,7 @@
 
   <main>
     <div id="questionDisplay">
-    <h2>Pick the image you like the best.</h2>
+    <h2 id="questions">Pick the image you like the best.</h2>
     <table id="table">
       <tr>
         <td><img id="choiceA" src="" alt="choiceA"></td>
@@ -52,7 +52,7 @@
       <img src="img/vikingfuneral.jpg" alt="Viking Funeral" title="Viking Funeral" />
       <p>Pack your favorite earthly possessions onto the combustable watercraft of your choice! Your kin will fire flaming arrows until your craft is engulfed in flames. Laid down in your finest, you will sink to your final resting spot.</p>
     </div>
-    <div id="green">
+    <div id="burial">
       <a name="burial"></a><h2>Burial</h2>
       <img src="img/burial.jpg" alt="Ground Burial" title="Ground Burial" />
       <p> A traditional favorite, whether 'green', embalmed, or according to religious custom. Burial has been a prime mover of people into the Earth's crust.</p>
@@ -80,15 +80,12 @@
     </div>
     <p>To learn more about all options, please <a href="learn.html" alt="learn page">click here</a>.</p>
   </div>
-
-    <canvas id="barGraph" width="900px" height="300px">
-      *results go here*
-    </canvas>
-
   </main>
-
+  <canvas id="barGraph" width="900px" height="300px">
+    *results go here*
+  </canvas>
 <footer>
-  <p><a href="#">Contact Us</a></p>
+  <p><a href="aboutus.html">Contact Us</a></p>
 </footer>
 <script src="js/quiz.js"></script>
 </body>
