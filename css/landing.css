@@ -15,6 +15,11 @@ body header{
   padding-left: 18%;
 }
 
+body header a {
+  text-decoration: none;
+  color: black;
+}
+
 h2, h3 {
   font-family: 'IM Fell English SC', serif;
 }
@@ -29,8 +34,8 @@ main {
 
 button {
   position: relative;
-  left: 45%;
-  right: 45%;
+  left: 35%;
+  right: 38%;
   font-size: 18px;
   padding: 15px;
   padding-left: 20px;

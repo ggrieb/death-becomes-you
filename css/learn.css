@@ -6,11 +6,20 @@ body {
   margin: 0 auto;
 }
 
+body header a {
+  text-decoration: none;
+  color: black;
+}
+
 body main {
   background-color: #caebf2;
   width: 960px;
   margin-left: auto;
   margin-right: auto;
+}
+
+.spacer {
+  padding-top: 160px;
 }
 
 h2 {
@@ -25,6 +34,7 @@ header {
   top: 0px;
   margin-left: 0px;
   margin-right: 0px;
+  padding-left: 18%;
 }
 
 nav {
@@ -33,6 +43,10 @@ nav {
   background: #a9a9a9;
   position: fixed;
   top: 80px;
+}
+
+#onLearn a {
+  background-color: #ff3b3f;
 }
 
 nav ul {
@@ -75,11 +89,9 @@ main p {
 #side {
   position: fixed;
   top: 120px;
-  margin-left: 10px;
+  margin-left: 18.5%;
   background-color: #a9a9a9;
-  opacity: .8;
   border-radius: 2px;
-  margin-left: 0px;
   padding-left: 10px;
   padding-right: 10px;
 }
@@ -93,7 +105,7 @@ main p {
   padding: 10px;
 }
 
-.bold:hover {
+#side a:hover {
   background-color: #ff3b3f;
 }
 
@@ -105,7 +117,6 @@ div:not(#side) {
   padding-left: 100px;
   margin-left: 20%;
   margin-bottom: 50px;
-  margin-top: 140px;
   width: 600px;
 }
 
@@ -127,17 +138,15 @@ footer p a {
   color: white;
 }
 
-button {
-  
-  left: 45%;
-  right: 45%;
+button { 
+  text-align: center;
   font-size: 18px;
   padding: 15px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding-left: 42px;
+  padding-right: 53px;
   color: white;
   background-color: #ff3b3f;
   border-radius: 10px;
-  margin-top: 20px;
-   
+  margin-top: 5px;
+  cursor: pointer;
 }
